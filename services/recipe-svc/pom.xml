@@ -8,8 +8,8 @@
 		<version>3.5.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>org.nahak</groupId>
-	<artifactId>demo</artifactId>
+	<groupId>com.cookbook</groupId>
+	<artifactId>recipe-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Recipe Service</name>
 	<description>Service that handles Recipe operations</description>
@@ -63,6 +63,13 @@
 	</dependencies>
 
 	<build>
+	     <sourceDirectory>src/main/java</sourceDirectory>
+    <testSourceDirectory>src/test/java</testSourceDirectory>
+    <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+        </resource>
+    </resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
