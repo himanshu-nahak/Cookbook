@@ -1,13 +1,8 @@
-package com.cookbook.recipe.model;
+package com.cookbook.recipe.dto;
 
 import java.time.Instant;
-import java.util.Date;
 import java.util.List;
-
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.cookbook.recipe.model.Ingredient;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,10 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "recipes")
-public class Recipe {
-
-    @Id
+public class RecipeResponseDTO {
     private String id;
     private String name;
     private List<Ingredient> ingredients;
@@ -30,9 +22,7 @@ public class Recipe {
     private String instructions;
     private String imageUrl;
     private String createdBy;
-    @CreatedDate
     private Instant createdAt;
-    @LastModifiedDate
     private Instant updatedAt;
-    private String userId;
+
 }
