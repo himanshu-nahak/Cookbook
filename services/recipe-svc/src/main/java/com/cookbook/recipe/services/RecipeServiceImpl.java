@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.cookbook.recipe.dto.RecipeRequestDTO;
 import com.cookbook.recipe.dto.RecipeResponseDTO;
+import com.cookbook.recipe.dto.RecipeUpdateDTO;
 import com.cookbook.recipe.mapper.RecipeMapper;
 import com.cookbook.recipe.model.Recipe;
 import com.cookbook.recipe.model.User;
@@ -38,6 +39,29 @@ public class RecipeServiceImpl implements RecipeService {
         Recipe savedRecipe = recipeRepository.save(recipe);
         return recipeMapper.toRecipeUserResponseDTO(savedRecipe);
 
+    }
+
+    @Override
+    public void deleteRecipe(String id) throws Exception {
+        if (!recipeRepository.existsById(id)) {
+            throw new Exception("Recipe not found with id:" + id);
+        }
+        recipeRepository.deleteById(id);
+    }
+
+    @Override
+    public RecipeResponseDTO getRecipebyId(String id) throws Exception {
+        Recipe recipe = recipeRepository.findById(id)
+                .orElseThrow(() -> new Exception("Recipe Not Found"));
+        return recipeMapper.toRecipeUserResponseDTO(recipe);
+    }
+
+    @Override
+    public RecipeResponseDTO updateRecipe(String id, RecipeUpdateDTO updateRequestRecipe) throws Exception {
+        Recipe existingRecipe = recipeRepository.findById(id).orElseThrow(() -> new Exception("Recipe not found."));
+        recipeMapper.updateRecipeFromDto(existingRecipe, updateRequestRecipe);
+        Recipe updatedRecipe = recipeRepository.save(existingRecipe);
+        return recipeMapper.toRecipeUserResponseDTO(updatedRecipe);
     }
 
 }
