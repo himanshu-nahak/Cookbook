@@ -13,10 +13,10 @@ public interface RecipeService {
 
     public RecipeResponseDTO createRecipe(RecipeRequestDTO requestRecipe);
 
-    public void deleteRecipe(String id) throws Exception;
+    public void deleteRecipe(String id);
 
-    public RecipeResponseDTO getRecipebyId(String id) throws Exception;
+    public RecipeResponseDTO getRecipeById(String id);
 
-    public RecipeResponseDTO updateRecipe(String id, RecipeUpdateDTO recipe) throws Exception;
+    public RecipeResponseDTO updateRecipe(String id, RecipeUpdateDTO recipe);
 
 }
