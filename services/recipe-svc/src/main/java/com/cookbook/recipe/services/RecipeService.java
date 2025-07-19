@@ -5,7 +5,6 @@ import java.util.List;
 import com.cookbook.recipe.dto.RecipeRequestDTO;
 import com.cookbook.recipe.dto.RecipeResponseDTO;
 import com.cookbook.recipe.dto.RecipeUpdateDTO;
-import com.cookbook.recipe.model.Recipe;
 
 public interface RecipeService {
 
